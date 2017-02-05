@@ -19,14 +19,15 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-android {
-    compileSdkVersion 24
-    buildToolsVersion '25.0.2'
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
-    }
-}
-dependencies {
-}
+//android {
+//    compileSdkVersion 25
+//    buildToolsVersion '25.0.2'
+//
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_7
+//        targetCompatibility JavaVersion.VERSION_1_7
+//    }
+//}
+//dependencies {
+//    compile files('gradle/wrapper/gradle-wrapper.jar')
+//}
