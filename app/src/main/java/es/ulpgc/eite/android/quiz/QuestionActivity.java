@@ -79,7 +79,7 @@ public class QuestionActivity extends AppCompatActivity {
     //quizApp = (QuizApp) getApplication();
     questionStore = new QuestionStore();
     
-    setButtonLabels();
+    //setButtonLabels();
     checkVisibility();
 
     setQuestion(getQuestionStore().getCurrentQuestion());
@@ -160,11 +160,17 @@ public class QuestionActivity extends AppCompatActivity {
     }
   }
 
-  private void checkVisibility(){
+  public void checkVisibility(){
     checkToolbarVisibility();
     checkAnswerVisibility();
   }
 
+
+
+
+
+
+  //Esto pertenece a la vista!!!
 
   private void hideAnswer() {
     labelAnswer.setVisibility(View.INVISIBLE);
@@ -178,23 +184,23 @@ public class QuestionActivity extends AppCompatActivity {
     labelAnswer.setText(text);
   }
 
-  private void setCheatButton(String label) {
+  public void setCheatButton(String label) {
     buttonCheat.setText(label);
   }
 
-  private void setFalseButton(String label) {
+  public void setFalseButton(String label) {
     buttonFalse.setText(label);
   }
 
-  private void setNextButton(String label) {
+  public void setNextButton(String label) {
     buttonNext.setText(label);
   }
 
-  private void setQuestion(String text) {
+  public void setQuestion(String text) {
     labelQuestion.setText(text);
   }
 
-  private void setTrueButton(String label) {
+  public void setTrueButton(String label) {
     buttonTrue.setText(label);
   }
 
@@ -202,31 +208,7 @@ public class QuestionActivity extends AppCompatActivity {
     labelAnswer.setVisibility(View.VISIBLE);
   }
 
-  /*
-  private boolean isAnswerBtnClicked() {
-    return quizApp.isAnswerBtnClicked();
-  }
 
-  private void setAnswerBtnClicked(boolean clicked) {
-    quizApp.setAnswerBtnClicked(clicked);
-  }
-
-  private QuestionStore getQuestionStore() {
-    return quizApp.getQuestionStore();
-  }
-
-  private boolean isToolbarVisible() {
-    return quizApp.isToolbarVisible();
-  }
-
-  private void setAnswerVisibility(boolean visible) {
-    quizApp.setAnswerVisibility(visible);
-  }
-
-  private boolean isAnswerVisible() {
-    return quizApp.isAnswerVisible();
-  }
-  */
   private void goToCheatScreen(){
     startActivity(new Intent(this, CheatActivity.class));
     //quizApp.goToCheatScreen(this);

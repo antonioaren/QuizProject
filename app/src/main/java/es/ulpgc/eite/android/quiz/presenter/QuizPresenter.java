@@ -1,6 +1,9 @@
 package es.ulpgc.eite.android.quiz.presenter;
 
 import android.support.v7.app.AppCompatActivity;
+
+import es.ulpgc.eite.android.quiz.QuestionActivity;
+import es.ulpgc.eite.android.quiz.QuestionStore;
 import es.ulpgc.eite.android.quiz.model.QuizModel;
 import es.ulpgc.eite.android.quiz.view.QuizView;
 
@@ -10,16 +13,22 @@ import es.ulpgc.eite.android.quiz.view.QuizView;
 
 public class QuizPresenter extends AppCompatActivity {
     private QuizModel model;
+    private QuestionActivity view;
+    private QuestionStore questionStore;
 
 
     public QuizPresenter(){
         model = new QuizModel();
-        QuizView view = new QuizView();
+        view = new QuestionActivity();
+        questionStore = new QuestionStore();
 
     }
 
     public void onScreenStarted() {
-        model.setbuttonLabels();
+        this.setButtonLabels();
+        view.checkVisibility();
+        view.setQuestion(questionStore.getCurrentAnswer());
+
 
     }
 
@@ -34,5 +43,12 @@ public class QuizPresenter extends AppCompatActivity {
     }
 
     public void onNextBtnClicked() {
+    }
+
+    private void setButtonLabels(){
+        view.setTrueButton(questionStore.getTrueLabel());
+        view.setFalseButton(questionStore.getFalseLabel());
+        view.setCheatButton(questionStore.getNextLabel());
+        view.setNextButton(questionStore.getNextLabel());
     }
 }
