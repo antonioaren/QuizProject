@@ -5,4 +5,7 @@ package es.ulpgc.eite.android.quiz.model;
  */
 
 public class QuizModel {
+    public void onAnswerBtnClicked(boolean answer) {
+
+    }
 }
