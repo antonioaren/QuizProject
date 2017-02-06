@@ -18,7 +18,6 @@ public class QuizPresenter extends AppCompatActivity {
 
     public void onTrueBtnClicked() {
         model.onAnswerBtnClicked(true);
-
     }
 
     public void onFalseBtnClicked() {
@@ -28,5 +27,9 @@ public class QuizPresenter extends AppCompatActivity {
     }
 
     public void onNextBtnClicked() {
+    }
+
+    public void onScreenStarted() {
+
     }
 }

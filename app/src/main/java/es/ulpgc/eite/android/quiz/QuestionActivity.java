@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
+
 public class QuestionActivity extends AppCompatActivity {
 
 
@@ -19,6 +21,9 @@ public class QuestionActivity extends AppCompatActivity {
   private Toolbar toolbarScreen;
   private Button buttonTrue, buttonFalse, buttonCheat, buttonNext;
   private TextView labelQuestion, labelAnswer;
+
+  private QuizPresenter presenter;
+
   //private QuizApp quizApp;
 
 
@@ -27,6 +32,7 @@ public class QuestionActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_question);
 
+    presenter = new QuizPresenter();
 
     labelQuestion = (TextView) findViewById(R.id.labelQuestion);
     labelAnswer = (TextView) findViewById(R.id.labelAnswer);
@@ -38,33 +44,35 @@ public class QuestionActivity extends AppCompatActivity {
     buttonTrue.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onTrueBtnClicked();
+        presenter.onTrueBtnClicked();
       }
     });
+
     buttonFalse = (Button) findViewById(R.id.buttonFalse);
     buttonFalse.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onFalseBtnClicked();
+        presenter.onFalseBtnClicked();
       }
     });
+
     buttonCheat = (Button) findViewById(R.id.buttonCheat);
     buttonCheat.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onCheatBtnClicked();
+        presenter.onCheatBtnClicked();
       }
     });
+
     buttonNext = (Button) findViewById(R.id.buttonNext);
     buttonNext.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onNextBtnClicked();
+        presenter.onNextBtnClicked();
       }
     });
 
-    onScreenStarted();
-
+    presenter.onScreenStarted();
   }
 
   private void onScreenStarted() {
@@ -86,6 +94,7 @@ public class QuestionActivity extends AppCompatActivity {
     setCheatButton(getQuestionStore().getCheatLabel());
     setNextButton(getQuestionStore().getNextLabel());
   }
+
 
   private void onTrueBtnClicked() {
     onAnswerBtnClicked(true);
