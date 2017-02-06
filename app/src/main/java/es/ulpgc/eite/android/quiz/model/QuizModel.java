@@ -7,10 +7,24 @@ import es.ulpgc.eite.android.quiz.QuestionStore;
  */
 
 public class QuizModel {
-     
+    private QuestionStore questionstore;
 
-    public void onAnswerBtnClicked(boolean answer) {
+    public QuizModel() {
+        questionstore = new QuestionStore();
+    }
+
+    public void setUp() {
 
 
+    }
+
+    public void onAnswerBtnClicked(boolean b) {
+    }
+
+    public void setbuttonLabels() {
+        questionstore.getTrueLabel();
+        questionstore.getFalseLabel();
+        questionstore.getCheatLabel();
+        questionstore.getNextLabel();
     }
 }

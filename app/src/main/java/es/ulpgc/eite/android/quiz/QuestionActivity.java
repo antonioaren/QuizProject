@@ -83,6 +83,7 @@ public class QuestionActivity extends AppCompatActivity {
     checkVisibility();
 
     setQuestion(getQuestionStore().getCurrentQuestion());
+
     if(isAnswerBtnClicked()){
       setAnswer(getQuestionStore().getCurrentAnswer());
     }
@@ -94,7 +95,6 @@ public class QuestionActivity extends AppCompatActivity {
     setCheatButton(getQuestionStore().getCheatLabel());
     setNextButton(getQuestionStore().getNextLabel());
   }
-
 
   private void onTrueBtnClicked() {
     onAnswerBtnClicked(true);
