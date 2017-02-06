@@ -53,7 +53,6 @@ public class QuizApp extends Application {
     activity.startActivity(new Intent(activity, CheatActivity.class));
   }
 
-
   public void backToQuestionScreen(CheatActivity activity){
     activity.finish();
   }
