@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import es.ulpgc.eite.android.quiz.CheatActivity;
+
 import es.ulpgc.eite.android.quiz.model.QuizModel;
 import es.ulpgc.eite.android.quiz.view.QuizView;
 
@@ -18,8 +19,8 @@ public class QuizPresenter extends AppCompatActivity {
     private QuizModel quizModel;
 
 
-    public QuizPresenter(){
-        view = new QuizView();
+    public QuizPresenter(QuizView quizView){
+        this.view = quizView;
         quizModel = new QuizModel();
     }
 

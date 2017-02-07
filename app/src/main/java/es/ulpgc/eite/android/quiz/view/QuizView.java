@@ -12,7 +12,6 @@ import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
 
 public class QuizView extends AppCompatActivity {
 
-
   private boolean toolbarVisible;
   private boolean answerVisible;
   private boolean answerBtnClicked;
@@ -31,7 +30,7 @@ public class QuizView extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_question);
 
-    presenter = new QuizPresenter();
+    presenter = new QuizPresenter(this);
 
     labelQuestion = (TextView) findViewById(R.id.labelQuestion);
     labelAnswer = (TextView) findViewById(R.id.labelAnswer);
