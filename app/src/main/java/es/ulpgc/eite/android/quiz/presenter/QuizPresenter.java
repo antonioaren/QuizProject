@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import es.ulpgc.eite.android.quiz.CheatActivity;
-import es.ulpgc.eite.android.quiz.QuestionActivity;
-import es.ulpgc.eite.android.quiz.QuestionStore;
+import es.ulpgc.eite.android.quiz.model.QuizModel;
+import es.ulpgc.eite.android.quiz.view.QuizView;
 
 
 /**
@@ -14,22 +14,22 @@ import es.ulpgc.eite.android.quiz.QuestionStore;
 
 public class QuizPresenter extends AppCompatActivity {
 
-    private QuestionActivity view;
-    private QuestionStore questionStore;
+    private QuizView view;
+    private QuizModel quizModel;
 
 
     public QuizPresenter(){
-        view = new QuestionActivity();
-        questionStore = new QuestionStore();
+        view = new QuizView();
+        quizModel = new QuizModel();
     }
 
     public void onScreenStarted() {
         this.setButtonLabels();
         this.checkVisibility();
-        view.setQuestion(questionStore.getCurrentAnswer());
+        view.setQuestion(quizModel.getCurrentAnswer());
 
       if(view.isAnswerBtnClicked()){
-         view.setAnswer(questionStore.getCurrentAnswer());
+         view.setAnswer(quizModel.getCurrentAnswer());
       }
 
     }
@@ -44,20 +44,20 @@ public class QuizPresenter extends AppCompatActivity {
         this.GoToCheatScreen();
     }
     public void onNextBtnClicked() {
-        view.setQuestion(questionStore.getNextQuestion());
+        view.setQuestion(quizModel.getNextQuestion());
     }
 
 
     private void setButtonLabels(){
-        view.setTrueButton(questionStore.getTrueLabel());
-        view.setFalseButton(questionStore.getFalseLabel());
-        view.setCheatButton(questionStore.getNextLabel());
-        view.setNextButton(questionStore.getNextLabel());
+        view.setTrueButton(quizModel.getTrueLabel());
+        view.setFalseButton(quizModel.getFalseLabel());
+        view.setCheatButton(quizModel.getNextLabel());
+        view.setNextButton(quizModel.getNextLabel());
     }
 
     private void onAnswerBtnClicked (boolean answer){
-        questionStore.setCurrentAnswer(answer);
-        view.setAnswer(questionStore.getCurrentAnswer());
+        quizModel.setCurrentAnswer(answer);
+        view.setAnswer(quizModel.getCurrentAnswer());
         view.setAnswerVisibility(true);
         view.setAnswerBtnClicked(true);
 
