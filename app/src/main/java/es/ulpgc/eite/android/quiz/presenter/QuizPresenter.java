@@ -28,21 +28,28 @@ public class QuizPresenter extends AppCompatActivity {
         this.setButtonLabels();
         view.checkVisibility();
         view.setQuestion(questionStore.getCurrentAnswer());
-
+//
+//      Falta el if. no se exactamente donde va.
+//
+//      if(isAnswerBtnClicked()){
+//         setAnswer(getQuestionStore().getCurrentAnswer());
+//      }
 
     }
 
     public void onTrueBtnClicked() {
-        model.onAnswerBtnClicked(true);
+        this.onAnswerBtnClicked(true);
     }
 
     public void onFalseBtnClicked() {
+        this.onAnswerBtnClicked(false);
     }
 
     public void onCheatBtnClicked() {
     }
 
     public void onNextBtnClicked() {
+
     }
 
     private void setButtonLabels(){
@@ -51,4 +58,23 @@ public class QuizPresenter extends AppCompatActivity {
         view.setCheatButton(questionStore.getNextLabel());
         view.setNextButton(questionStore.getNextLabel());
     }
+
+    private void onAnswerBtnClicked (boolean answer){
+        questionStore.setCurrentAnswer(answer);
+        view.setAnswer(questionStore.getCurrentAnswer());
+        model.setAnswerVisibility(true);
+        model.setAnswerBtnClicked(true);
+
+        this.checkAnswerVisibility();
+    }
+
+    private void checkAnswerVisibility(){
+        if(!model.isAnswerVisible()) {
+            view.hideAnswer();
+        } else {
+            view.showAnswer();
+        }
+    }
+
+
 }

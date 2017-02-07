@@ -7,14 +7,27 @@ import es.ulpgc.eite.android.quiz.QuestionStore;
  */
 
 public class QuizModel {
-    private QuestionStore questionstore;
+
+    private boolean answerVisible;
+    private boolean answerBtnClicked;
+
 
     public QuizModel() {
-        questionstore = new QuestionStore();
     }
 
-    public void onAnswerBtnClicked(boolean b) {
+    public void setAnswerVisibility(boolean visible) {
+        answerVisible = visible;
     }
+
+    public void setAnswerBtnClicked(boolean clicked) {
+        answerBtnClicked = clicked;
+    }
+
+    public boolean isAnswerVisible() {
+        return answerVisible;
+    }
+
+
 
 
 }

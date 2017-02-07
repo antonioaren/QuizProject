@@ -75,34 +75,26 @@ public class QuestionActivity extends AppCompatActivity {
     presenter.onScreenStarted();
   }
 
-  private void onScreenStarted() {
-    //quizApp = (QuizApp) getApplication();
-    questionStore = new QuestionStore();
-    
-    //setButtonLabels();
-    checkVisibility();
-
-    setQuestion(getQuestionStore().getCurrentQuestion());
-
-    if(isAnswerBtnClicked()){
-      setAnswer(getQuestionStore().getCurrentAnswer());
-    }
-  }
-
-  private void setButtonLabels(){
-    setTrueButton(getQuestionStore().getTrueLabel());
-    setFalseButton(getQuestionStore().getFalseLabel());
-    setCheatButton(getQuestionStore().getCheatLabel());
-    setNextButton(getQuestionStore().getNextLabel());
-  }
-
-  private void onTrueBtnClicked() {
-    onAnswerBtnClicked(true);
-  }
-
-  private void onFalseBtnClicked() {
-    onAnswerBtnClicked(false);
-  }
+//  private void onScreenStarted() {
+//    //quizApp = (QuizApp) getApplication();
+//    questionStore = new QuestionStore();
+//
+//    setButtonLabels();
+//    checkVisibility();
+//
+//    setQuestion(getQuestionStore().getCurrentQuestion());
+//
+//    if(isAnswerBtnClicked()){
+//      setAnswer(getQuestionStore().getCurrentAnswer());
+//    }
+//  }
+//
+//  private void setButtonLabels(){
+//    setTrueButton(getQuestionStore().getTrueLabel());
+//    setFalseButton(getQuestionStore().getFalseLabel());
+//    setCheatButton(getQuestionStore().getCheatLabel());
+//    setNextButton(getQuestionStore().getNextLabel());
+//  }
 
   private void onAnswerBtnClicked(boolean answer) {
     getQuestionStore().setCurrentAnswer(answer);
@@ -111,6 +103,14 @@ public class QuestionActivity extends AppCompatActivity {
     setAnswerBtnClicked(true);
 
     checkAnswerVisibility();
+  }
+
+  private void onTrueBtnClicked() {
+    onAnswerBtnClicked(true);
+  }
+
+  private void onFalseBtnClicked() {
+    onAnswerBtnClicked(false);
   }
 
   private void onCheatBtnClicked() {
@@ -165,14 +165,9 @@ public class QuestionActivity extends AppCompatActivity {
     checkAnswerVisibility();
   }
 
-
-
-
-
-
   //Esto pertenece a la vista!!!
 
-  private void hideAnswer() {
+  public void hideAnswer() {
     labelAnswer.setVisibility(View.INVISIBLE);
   }
 
@@ -180,7 +175,7 @@ public class QuestionActivity extends AppCompatActivity {
     toolbarScreen.setVisibility(View.GONE);
   }
 
-  private void setAnswer(String text) {
+  public void setAnswer(String text) {
     labelAnswer.setText(text);
   }
 
@@ -204,11 +199,35 @@ public class QuestionActivity extends AppCompatActivity {
     buttonTrue.setText(label);
   }
 
-  private void showAnswer() {
+  public void showAnswer() {
     labelAnswer.setVisibility(View.VISIBLE);
   }
 
+  /*
+  private boolean isAnswerBtnClicked() {
+    return quizApp.isAnswerBtnClicked();
+  }
 
+  private void setAnswerBtnClicked(boolean clicked) {
+    quizApp.setAnswerBtnClicked(clicked);
+  }
+
+  private QuestionStore getQuestionStore() {
+    return quizApp.getQuestionStore();
+  }
+
+  private boolean isToolbarVisible() {
+    return quizApp.isToolbarVisible();
+  }
+
+  private void setAnswerVisibility(boolean visible) {
+    quizApp.setAnswerVisibility(visible);
+  }
+
+  private boolean isAnswerVisible() {
+    return quizApp.isAnswerVisible();
+  }
+  */
   private void goToCheatScreen(){
     startActivity(new Intent(this, CheatActivity.class));
     //quizApp.goToCheatScreen(this);
