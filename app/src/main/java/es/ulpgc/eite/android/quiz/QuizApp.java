@@ -3,14 +3,14 @@ package es.ulpgc.eite.android.quiz;
 import android.app.Application;
 import android.content.Intent;
 
-import es.ulpgc.eite.android.quiz.model.QuizModel;
+import es.ulpgc.eite.android.quiz.model.QuestionStore;
 import es.ulpgc.eite.android.quiz.view.QuizView;
 
 public class QuizApp extends Application {
 
   private QuestionState questionState;
   private CheatState cheatState;
-  private QuizModel quizModel;
+  private QuestionStore questionStore;
 
   @Override
   public void onCreate() {
@@ -20,11 +20,11 @@ public class QuizApp extends Application {
     questionState.toolbarVisible = false;
     questionState.answerVisible = false;
 
-    quizModel = new QuizModel();
+    questionStore = new QuestionStore();
   }
 
-  public QuizModel getQuestionStore(){
-    return quizModel;
+  public QuestionStore getQuestionStore(){
+    return questionStore;
   }
 
   public boolean isAnswerBtnClicked() {

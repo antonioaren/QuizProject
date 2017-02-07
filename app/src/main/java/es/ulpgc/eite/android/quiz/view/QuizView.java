@@ -76,7 +76,7 @@ public class QuizView extends AppCompatActivity {
 
 //  private void onScreenStarted() {
 //    //quizApp = (QuizApp) getApplication();
-//    questionStore = new QuizModel();
+//    questionStore = new QuestionStore();
 //
 //    setButtonLabels();
 //    checkVisibility();
@@ -120,7 +120,7 @@ public class QuizView extends AppCompatActivity {
 //    setQuestion(getQuestionStore().getNextQuestion());
 //  }
 //
-//  private QuizModel getQuestionStore() {
+//  private QuestionStore getQuestionStore() {
 //    return questionStore;
 //  }
 //
@@ -212,7 +212,7 @@ public class QuizView extends AppCompatActivity {
 //    quizApp.setAnswerBtnClicked(clicked);
 //  }
 //
-//  private QuizModel getQuestionStore() {
+//  private QuestionStore getQuestionStore() {
 //    return quizApp.getQuestionStore();
 //  }
 //

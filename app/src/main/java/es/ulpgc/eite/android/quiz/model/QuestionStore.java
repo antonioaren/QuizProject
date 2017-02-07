@@ -2,7 +2,7 @@ package es.ulpgc.eite.android.quiz.model;
 
 
 
-public class QuizModel {
+public class QuestionStore {
 
   private String correctLabel, incorrectLabel;
   private String falseLabel, trueLabel, cheatLabel, nextLabel;
@@ -57,7 +57,7 @@ public class QuizModel {
       true      // 20
   };
 
-    public QuizModel() {
+    public QuestionStore() {
         falseLabel = "False";
         trueLabel = "True";
         correctLabel = "Correct!";
