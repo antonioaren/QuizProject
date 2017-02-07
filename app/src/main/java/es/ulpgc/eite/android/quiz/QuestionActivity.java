@@ -15,7 +15,6 @@ public class QuestionActivity extends AppCompatActivity {
 
   private boolean toolbarVisible;
   private boolean answerVisible;
-  private QuestionStore questionStore;
   private boolean answerBtnClicked;
 
   private Toolbar toolbarScreen;
@@ -95,83 +94,81 @@ public class QuestionActivity extends AppCompatActivity {
 //    setCheatButton(getQuestionStore().getCheatLabel());
 //    setNextButton(getQuestionStore().getNextLabel());
 //  }
+//
+//  private void onAnswerBtnClicked(boolean answer) {
+//    getQuestionStore().setCurrentAnswer(answer);
+//    setAnswer(getQuestionStore().getCurrentAnswer());
+//    setAnswerVisibility(true);
+//    setAnswerBtnClicked(true);
+//
+//    checkAnswerVisibility();
+//  }
+//
+//  private void onTrueBtnClicked() {
+////    onAnswerBtnClicked(true);
+//  }
+//
+//  private void onFalseBtnClicked() {
+////    onAnswerBtnClicked(false);
+//  }
+//
+//  private void onCheatBtnClicked() {
+//    goToCheatScreen();
+//  }
+//
+//  private void onNextBtnClicked(){
+//    setQuestion(getQuestionStore().getNextQuestion());
+//  }
+//
+//  private QuestionStore getQuestionStore() {
+//    return questionStore;
+//  }
+//
+//  private void checkToolbarVisibility(){
+//
+//  }
+//    }
+//      showAnswer();
+//    } else {
+//      hideAnswer();
+//    if(!isAnswerVisible()) {
+//  public void checkAnswerVisibility(){
+//
+//  }
+//    checkAnswerVisibility();
+//    checkToolbarVisibility();
+//  public void checkVisibility(){
+//
+//  }
+//    }
+//      hideToolbar();
+//    if (!isToolbarVisible()) {
 
-  private void onAnswerBtnClicked(boolean answer) {
-    getQuestionStore().setCurrentAnswer(answer);
-    setAnswer(getQuestionStore().getCurrentAnswer());
-    setAnswerVisibility(true);
-    setAnswerBtnClicked(true);
+public boolean isAnswerVisible() {
+  return answerVisible;
+}
 
-    checkAnswerVisibility();
-  }
-
-  private void onTrueBtnClicked() {
-    onAnswerBtnClicked(true);
-  }
-
-  private void onFalseBtnClicked() {
-    onAnswerBtnClicked(false);
-  }
-
-  private void onCheatBtnClicked() {
-    goToCheatScreen();
-  }
-
-  private void onNextBtnClicked(){
-    setQuestion(getQuestionStore().getNextQuestion());
-  }
-
-  private QuestionStore getQuestionStore() {
-    return questionStore;
-  }
-
-  private boolean isAnswerVisible() {
-    return answerVisible;
-  }
-
-  private boolean isToolbarVisible() {
+  public boolean isToolbarVisible() {
     return toolbarVisible;
   }
 
-  private void setAnswerVisibility(boolean visible) {
-    answerVisible = visible;
-  }
-
-  private boolean isAnswerBtnClicked() {
+  public boolean isAnswerBtnClicked() {
     return answerBtnClicked;
   }
 
-  private void setAnswerBtnClicked(boolean clicked) {
+  public void setAnswerBtnClicked(boolean clicked) {
     answerBtnClicked = clicked;
   }
 
-
-  private void checkAnswerVisibility(){
-    if(!isAnswerVisible()) {
-      hideAnswer();
-    } else {
-      showAnswer();
-    }
+  public void setAnswerVisibility(boolean visible) {
+    answerVisible = visible;
   }
-
-  private void checkToolbarVisibility(){
-    if (!isToolbarVisible()) {
-      hideToolbar();
-    }
-  }
-
-  public void checkVisibility(){
-    checkToolbarVisibility();
-    checkAnswerVisibility();
-  }
-
-  //Esto pertenece a la vista!!!
 
   public void hideAnswer() {
     labelAnswer.setVisibility(View.INVISIBLE);
   }
 
-  private void hideToolbar() {
+  public void hideToolbar() {
     toolbarScreen.setVisibility(View.GONE);
   }
 
@@ -203,35 +200,33 @@ public class QuestionActivity extends AppCompatActivity {
     labelAnswer.setVisibility(View.VISIBLE);
   }
 
-  /*
-  private boolean isAnswerBtnClicked() {
-    return quizApp.isAnswerBtnClicked();
-  }
-
-  private void setAnswerBtnClicked(boolean clicked) {
-    quizApp.setAnswerBtnClicked(clicked);
-  }
-
-  private QuestionStore getQuestionStore() {
-    return quizApp.getQuestionStore();
-  }
-
-  private boolean isToolbarVisible() {
-    return quizApp.isToolbarVisible();
-  }
-
-  private void setAnswerVisibility(boolean visible) {
-    quizApp.setAnswerVisibility(visible);
-  }
-
-  private boolean isAnswerVisible() {
-    return quizApp.isAnswerVisible();
-  }
-  */
-  private void goToCheatScreen(){
-    startActivity(new Intent(this, CheatActivity.class));
-    //quizApp.goToCheatScreen(this);
-  }
-
+//  private boolean isAnswerBtnClicked() {
+//    return quizApp.isAnswerBtnClicked();
+//  }
+//
+//  private void setAnswerBtnClicked(boolean clicked) {
+//    quizApp.setAnswerBtnClicked(clicked);
+//  }
+//
+//  private QuestionStore getQuestionStore() {
+//    return quizApp.getQuestionStore();
+//  }
+//
+//  private boolean isToolbarVisible() {
+//    return quizApp.isToolbarVisible();
+//  }
+//
+//  private void setAnswerVisibility(boolean visible) {
+//    quizApp.setAnswerVisibility(visible);
+//  }
+//
+//  private boolean isAnswerVisible() {
+//    return quizApp.isAnswerVisible();
+//  }
+//
+//  private void goToCheatScreen(){
+//    startActivity(new Intent(this, CheatActivity.class));
+//    //quizApp.goToCheatScreen(this);
+//  }
 
 }
