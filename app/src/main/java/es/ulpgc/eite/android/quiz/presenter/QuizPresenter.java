@@ -53,7 +53,7 @@ public class QuizPresenter extends AppCompatActivity {
     private void setButtonLabels(){
         view.setTrueButton(questionStore.getTrueLabel());
         view.setFalseButton(questionStore.getFalseLabel());
-        view.setCheatButton(questionStore.getNextLabel());
+        view.setCheatButton(questionStore.getCheatLabel());
         view.setNextButton(questionStore.getNextLabel());
     }
     private void onAnswerBtnClicked (boolean answer){
