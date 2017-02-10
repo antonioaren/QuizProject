@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import es.ulpgc.eite.android.quiz.CheatActivity;
 
+import es.ulpgc.eite.android.quiz.Mediator.QuizMediator;
 import es.ulpgc.eite.android.quiz.model.QuestionStore;
 import es.ulpgc.eite.android.quiz.view.QuizView;
 
@@ -17,11 +18,16 @@ public class QuizPresenter extends AppCompatActivity {
 
     private QuizView view;
     private QuestionStore questionStore;
+    private QuizMediator mediator;
 
 
     public QuizPresenter(QuizView quizView){
         this.view = quizView;
         questionStore = new QuestionStore();
+    }
+
+    public QuizPresenter() {
+
     }
 
     public void onScreenStarted() {

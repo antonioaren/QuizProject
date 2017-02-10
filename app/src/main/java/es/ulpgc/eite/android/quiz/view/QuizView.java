@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import es.ulpgc.eite.android.quiz.Mediator.QuizMediator;
 import es.ulpgc.eite.android.quiz.R;
 import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
 
@@ -21,6 +22,7 @@ public class QuizView extends AppCompatActivity {
   private TextView labelQuestion, labelAnswer;
 
   private QuizPresenter presenter;
+  private QuizMediator mediator;
 
   //private QuizApp quizApp;
 
@@ -29,6 +31,10 @@ public class QuizView extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_question);
+
+    mediator = (QuizMediator) getApplication();
+    mediator.registerView(this);
+
 
     presenter = new QuizPresenter(this);
 
@@ -72,7 +78,6 @@ public class QuizView extends AppCompatActivity {
 
     presenter.onScreenStarted();
   }
-
 
 //  private void onScreenStarted() {
 //    //quizApp = (QuizApp) getApplication();

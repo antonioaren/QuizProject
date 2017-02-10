@@ -35,4 +35,7 @@ public class QuizMediator extends Application {
     }
 
 
+    public void registerView(QuizView quizView) {
+        this.view = quizView;
+    }
 }
