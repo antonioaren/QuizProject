@@ -21,7 +21,7 @@ public class QuizView extends AppCompatActivity {
   private Button buttonTrue, buttonFalse, buttonCheat, buttonNext;
   private TextView labelQuestion, labelAnswer;
 
-  private QuizPresenter presenter;
+  //private QuizPresenter presenter;
   private QuizMediator mediator;
 
   //private QuizApp quizApp;
@@ -36,7 +36,7 @@ public class QuizView extends AppCompatActivity {
     mediator.registerView(this);
 
 
-    presenter = new QuizPresenter(this);
+    //presenter = new QuizPresenter(this);
 
     labelQuestion = (TextView) findViewById(R.id.labelQuestion);
     labelAnswer = (TextView) findViewById(R.id.labelAnswer);
@@ -48,7 +48,7 @@ public class QuizView extends AppCompatActivity {
     buttonTrue.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        presenter.onTrueBtnClicked();
+        mediator.getPresenter().onTrueBtnClicked();
       }
     });
 
@@ -56,7 +56,7 @@ public class QuizView extends AppCompatActivity {
     buttonFalse.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        presenter.onFalseBtnClicked();
+        mediator.getPresenter().onFalseBtnClicked();
       }
     });
 
@@ -64,7 +64,7 @@ public class QuizView extends AppCompatActivity {
     buttonCheat.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        presenter.onCheatBtnClicked();
+        mediator.getPresenter().onCheatBtnClicked();
       }
     });
 
@@ -72,11 +72,11 @@ public class QuizView extends AppCompatActivity {
     buttonNext.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        presenter.onNextBtnClicked();
+        mediator.getPresenter().onNextBtnClicked();
       }
     });
 
-    presenter.onScreenStarted();
+    mediator.getPresenter().onScreenStarted();
   }
 
 //  private void onScreenStarted() {
