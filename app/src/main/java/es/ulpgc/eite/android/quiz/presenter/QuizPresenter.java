@@ -10,7 +10,7 @@ import es.ulpgc.eite.android.quiz.view.QuizView;
 
 
 /**
- * Created by User on 05/02/2017.
+ * Created by Pedro Arenas on 05/02/2017.
  */
 
 public class QuizPresenter extends AppCompatActivity {

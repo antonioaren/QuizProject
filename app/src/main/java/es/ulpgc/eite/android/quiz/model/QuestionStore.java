@@ -65,11 +65,9 @@ public class QuestionStore {
         cheatLabel = "Cheat";
         nextLabel = "Next";
     }
-
     public void setCurrentAnswer(boolean answer) {
         userAnswers[quizIndex] = answer;
     }
-
     public String getCurrentQuestion() {
     return quizQuestions[quizIndex];
   }
@@ -82,28 +80,21 @@ public class QuestionStore {
             return incorrectLabel;
         }
     }
-
     public String getNextLabel() {
     return nextLabel;
   }
-
     public String getNextQuestion() {
     quizIndex++;
     return getCurrentQuestion();
   }
 
 
-
     public String getFalseLabel() {
         return falseLabel;
     }
-
     public String getTrueLabel() {
     return trueLabel;
   }
-
-
-
     public String getCheatLabel() {
         return cheatLabel;
     }

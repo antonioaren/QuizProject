@@ -49,7 +49,7 @@ public class CheatActivity extends AppCompatActivity {
         onFalseBtnClicked();
       }
     });
-    
+
     onScreenStarted();
   }
 
@@ -97,16 +97,12 @@ public class CheatActivity extends AppCompatActivity {
   private void setAnswerVisibility(boolean visible) {
     answerVisible = visible;
   }
-
   private boolean isAnswerVisible() {
     return answerVisible;
   }
-
   private boolean isToolbarVisible() {
     return toolbarVisible;
   }
-
-
   private void checkAnswerVisibility(){
     if(!isAnswerVisible()) {
       hideAnswer();
@@ -121,13 +117,10 @@ public class CheatActivity extends AppCompatActivity {
       hideToolbar();
     }
   }
-
   private void checkVisibility(){
     checkToolbarVisibility();
     checkAnswerVisibility();
   }
-
-
   private void setButtonLabels(){
     setTrueButton(getTrueLabel());
     setFalseButton(getFalseLabel());
@@ -138,27 +131,21 @@ public class CheatActivity extends AppCompatActivity {
   private void hideToolbar() {
     toolbarScreen.setVisibility(View.GONE);
   }
-
   private void hideAnswer() {
     labelAnswer.setVisibility(View.INVISIBLE);
   }
-
   private void setAnswer(String txt) {
     labelAnswer.setText(txt);
   }
-
   private void setConfirm(String text) {
     labelConfirm.setText(text);
   }
-
   private void setFalseButton(String label) {
     buttonFalse.setText(label);
   }
-
   private void setTrueButton(String label) {
     buttonTrue.setText(label);
   }
-
   private void showAnswer() {
     labelAnswer.setVisibility(View.VISIBLE);
   }
@@ -167,13 +154,9 @@ public class CheatActivity extends AppCompatActivity {
   private String getConfirmLabel() {
     return confirmLabel;
   }
-
-
   private String getFalseLabel() {
     return falseLabel;
   }
-
-
   private String getAnswer() {
     if(trueAnswer) {
       return trueLabel;
@@ -181,11 +164,9 @@ public class CheatActivity extends AppCompatActivity {
       return falseLabel;
     }
   }
-
   private String getTrueLabel() {
     return trueLabel;
   }
-
   private void setAnswer(boolean answer){
     trueAnswer = answer;
   }
