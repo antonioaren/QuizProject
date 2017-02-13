@@ -1,4 +1,4 @@
-package es.ulpgc.eite.android.quiz;
+package es.ulpgc.eite.android.quiz.CheatScreen;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
+import es.ulpgc.eite.android.quiz.R;
 
 public class CheatActivity extends AppCompatActivity {
 

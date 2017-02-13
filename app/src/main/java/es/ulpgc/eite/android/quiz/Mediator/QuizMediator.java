@@ -2,9 +2,9 @@ package es.ulpgc.eite.android.quiz.Mediator;
 
 import android.app.Application;
 
-import es.ulpgc.eite.android.quiz.model.QuestionStore;
-import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
-import es.ulpgc.eite.android.quiz.view.QuizView;
+import es.ulpgc.eite.android.quiz.MainScreen.model.QuestionStore;
+import es.ulpgc.eite.android.quiz.MainScreen.presenter.QuizPresenter;
+import es.ulpgc.eite.android.quiz.MainScreen.view.QuizView;
 
 /**
  * Created by Pedro Arenas on 10/2/17.

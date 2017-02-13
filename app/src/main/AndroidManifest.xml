@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.QuizView"
+            android:name=".MainScreen.view.QuizView"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CheatActivity"
+            android:name=".CheatScreen.CheatActivity"
             android:label="@string/title_activity_cheat"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>

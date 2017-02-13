@@ -1,14 +1,10 @@
-package es.ulpgc.eite.android.quiz.presenter;
+package es.ulpgc.eite.android.quiz.MainScreen.presenter;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
-import es.ulpgc.eite.android.quiz.CheatActivity;
-
+import es.ulpgc.eite.android.quiz.CheatScreen.CheatActivity;
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
-import es.ulpgc.eite.android.quiz.Mediator.QuizMediator;
-import es.ulpgc.eite.android.quiz.model.QuestionStore;
-import es.ulpgc.eite.android.quiz.view.QuizView;
 
 
 /**

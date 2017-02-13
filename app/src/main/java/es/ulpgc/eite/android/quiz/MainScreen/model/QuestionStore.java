@@ -1,4 +1,4 @@
-package es.ulpgc.eite.android.quiz.model;
+package es.ulpgc.eite.android.quiz.MainScreen.model;
 
 
 

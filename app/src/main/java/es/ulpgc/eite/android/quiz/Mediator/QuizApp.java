@@ -3,10 +3,10 @@ package es.ulpgc.eite.android.quiz.Mediator;
 import android.app.Application;
 import android.content.Intent;
 
-import es.ulpgc.eite.android.quiz.CheatActivity;
-import es.ulpgc.eite.android.quiz.model.QuestionStore;
-import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
-import es.ulpgc.eite.android.quiz.view.QuizView;
+import es.ulpgc.eite.android.quiz.CheatScreen.CheatActivity;
+import es.ulpgc.eite.android.quiz.MainScreen.model.QuestionStore;
+import es.ulpgc.eite.android.quiz.MainScreen.presenter.QuizPresenter;
+import es.ulpgc.eite.android.quiz.MainScreen.view.QuizView;
 
 public class QuizApp extends Application {
 

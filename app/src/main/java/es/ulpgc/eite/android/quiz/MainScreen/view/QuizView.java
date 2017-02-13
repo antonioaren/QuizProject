@@ -1,4 +1,4 @@
-package es.ulpgc.eite.android.quiz.view;
+package es.ulpgc.eite.android.quiz.MainScreen.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
-import es.ulpgc.eite.android.quiz.Mediator.QuizMediator;
 import es.ulpgc.eite.android.quiz.R;
-import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
+import es.ulpgc.eite.android.quiz.MainScreen.presenter.QuizPresenter;
 
 public class QuizView extends AppCompatActivity {
 
