@@ -3,7 +3,7 @@ package es.ulpgc.eite.android.quiz.MainScreen.presenter;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
-import es.ulpgc.eite.android.quiz.CheatScreen.CheatActivity;
+import es.ulpgc.eite.android.quiz.CheatScreen.view.CheatActivity;
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
 
 
@@ -26,11 +26,11 @@ public class QuizPresenter extends AppCompatActivity {
         this.setButtonLabels();
         this.checkVisibility();
 
-        mediator.getView().setQuestion(mediator.getQuestionStore().getCurrentQuestion());
+        mediator.getMainView().setQuestion(mediator.getQuestionStore().getCurrentQuestion());
 
         //Esto lo que hace es guardar la respuesta en caso de que se cambie la orientación de la pantalla-
-        if(mediator.getView().isAnswerBtnClicked()){
-            mediator.getView().setAnswer(mediator.getQuestionStore().getCurrentAnswer());
+        if(mediator.getMainView().isAnswerBtnClicked()){
+            mediator.getMainView().setAnswer(mediator.getQuestionStore().getCurrentAnswer());
         }
 
     }
@@ -45,27 +45,27 @@ public class QuizPresenter extends AppCompatActivity {
         this.GoToCheatScreen();
     }
     public void onNextBtnClicked() {
-        mediator.getView().setQuestion(mediator.getQuestionStore().getNextQuestion());
+        mediator.getMainView().setQuestion(mediator.getQuestionStore().getNextQuestion());
     }
 
 
     private void setButtonLabels(){
-        mediator.getView().setTrueButton(mediator.getQuestionStore().getTrueLabel());
-        mediator.getView().setFalseButton(mediator.getQuestionStore().getFalseLabel());
-        mediator.getView().setCheatButton(mediator.getQuestionStore().getCheatLabel());
-        mediator.getView().setNextButton(mediator.getQuestionStore().getNextLabel());
+        mediator.getMainView().setTrueButton(mediator.getQuestionStore().getTrueLabel());
+        mediator.getMainView().setFalseButton(mediator.getQuestionStore().getFalseLabel());
+        mediator.getMainView().setCheatButton(mediator.getQuestionStore().getCheatLabel());
+        mediator.getMainView().setNextButton(mediator.getQuestionStore().getNextLabel());
     }
     private void onAnswerBtnClicked (boolean answer){
         mediator.getQuestionStore().setCurrentAnswer(answer);
-        mediator.getView().setAnswer(mediator.getQuestionStore().getCurrentAnswer());
-        mediator.getView().setAnswerVisibility(true);
-        mediator.getView().setAnswerBtnClicked(true);
+        mediator.getMainView().setAnswer(mediator.getQuestionStore().getCurrentAnswer());
+        mediator.getMainView().setAnswerVisibility(true);
+        mediator.getMainView().setAnswerBtnClicked(true);
 
         this.checkAnswerVisibility();
     }
     private void checkToolbarVisibility(){
-        if (!mediator.getView().isToolbarVisible()) {
-            mediator.getView().hideToolbar();
+        if (!mediator.getMainView().isToolbarVisible()) {
+            mediator.getMainView().hideToolbar();
         }
     }
     private void checkVisibility(){
@@ -73,10 +73,10 @@ public class QuizPresenter extends AppCompatActivity {
         checkAnswerVisibility();
     }
     private void checkAnswerVisibility(){
-        if(!mediator.getView().isAnswerVisible()) {
-            mediator.getView().hideAnswer();
+        if(!mediator.getMainView().isAnswerVisible()) {
+            mediator.getMainView().hideAnswer();
         } else {
-            mediator.getView().showAnswer();
+            mediator.getMainView().showAnswer();
         }
     }
     private void GoToCheatScreen(){

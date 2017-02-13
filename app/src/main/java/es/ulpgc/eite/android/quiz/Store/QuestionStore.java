@@ -1,6 +1,6 @@
-package es.ulpgc.eite.android.quiz.MainScreen.model;
+package es.ulpgc.eite.android.quiz.Store;
 
-
+import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
 
 public class QuestionStore {
 
@@ -57,7 +57,7 @@ public class QuestionStore {
       true      // 20
   };
 
-    public QuestionStore() {
+    public QuestionStore(QuizApp quizApp) {
         falseLabel = "False";
         trueLabel = "True";
         correctLabel = "Correct!";

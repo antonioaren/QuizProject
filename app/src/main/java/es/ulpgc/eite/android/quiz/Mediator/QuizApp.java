@@ -3,8 +3,9 @@ package es.ulpgc.eite.android.quiz.Mediator;
 import android.app.Application;
 import android.content.Intent;
 
-import es.ulpgc.eite.android.quiz.CheatScreen.CheatActivity;
-import es.ulpgc.eite.android.quiz.MainScreen.model.QuestionStore;
+import es.ulpgc.eite.android.quiz.CheatScreen.view.CheatActivity;
+import es.ulpgc.eite.android.quiz.CheatScreen.presenter.CheatPresenter;
+import es.ulpgc.eite.android.quiz.Store.QuestionStore;
 import es.ulpgc.eite.android.quiz.MainScreen.presenter.QuizPresenter;
 import es.ulpgc.eite.android.quiz.MainScreen.view.QuizView;
 
@@ -14,8 +15,12 @@ public class QuizApp extends Application {
   private CheatState cheatState;
 
   private QuestionStore questionStore;
-  private QuizView view;
-  private QuizPresenter presenter;
+
+  private QuizView MainView;
+  private CheatActivity CheatView;
+
+  private QuizPresenter QuizPresenter;
+  private CheatPresenter CheatPresenter;
 
   @Override
   public void onCreate() {
@@ -28,26 +33,40 @@ public class QuizApp extends Application {
 
   }
 
+  //Models
   public QuestionStore getQuestionStore(){
     if ( questionStore == null) {
-      questionStore = new QuestionStore();
+      questionStore = new QuestionStore(this);
     }
     return questionStore;
   }
 
-  public QuizView getView() {
-    return view;
+  // Views
+  public QuizView getMainView() {
+    return MainView;
+  }
+  public CheatActivity getCheatView() {
+    return CheatView;
   }
 
-  public QuizPresenter getPresenter() {
-    if (presenter == null){
-      presenter = new QuizPresenter(this);
+  //Presenters
+  public QuizPresenter getQuizPresenter() {
+    if (QuizPresenter == null){
+      QuizPresenter = new QuizPresenter(this);
     }
-    return presenter;
+    return QuizPresenter;
+  }
+
+  public CheatPresenter getCheatPresenter() {
+    if (CheatPresenter == null){
+      CheatPresenter = new CheatPresenter(this);
+    }
+    return CheatPresenter;
   }
 
   public void registerView(QuizView quizView) {
-    this.view = quizView;
+    this.MainView = quizView;
+    //this.CheatView = quizView;
   }
 
 

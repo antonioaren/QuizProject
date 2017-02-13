@@ -1,4 +1,4 @@
-package es.ulpgc.eite.android.quiz.CheatScreen;
+package es.ulpgc.eite.android.quiz.CheatScreen.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,14 +42,14 @@ public class CheatActivity extends AppCompatActivity {
     buttonTrue.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onTrueBtnClicked();
+        quizApp.getCheatPresenter().onTrueBtnClicked();
       }
     });
     buttonFalse = (Button) findViewById(R.id.buttonFalse);
     buttonFalse.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        onFalseBtnClicked();
+        quizApp.getCheatPresenter().onFalseBtnClicked();
       }
     });
 
@@ -57,7 +57,7 @@ public class CheatActivity extends AppCompatActivity {
   }
 
   private void onScreenStarted() {
-    //quizApp = (QuizApp) getApplication();
+    quizApp = (QuizApp) getApplication();
 
     falseLabel = "False";
     trueLabel = "True";

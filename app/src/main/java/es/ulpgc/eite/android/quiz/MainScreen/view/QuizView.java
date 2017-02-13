@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
 import es.ulpgc.eite.android.quiz.R;
-import es.ulpgc.eite.android.quiz.MainScreen.presenter.QuizPresenter;
 
 public class QuizView extends AppCompatActivity {
 
@@ -21,8 +20,6 @@ public class QuizView extends AppCompatActivity {
   private Button buttonTrue, buttonFalse, buttonCheat, buttonNext;
   private TextView labelQuestion, labelAnswer;
 
-  //private QuizPresenter presenter;
-  //private QuizMediator mediator;
 
   private QuizApp mediator;
 
@@ -48,7 +45,7 @@ public class QuizView extends AppCompatActivity {
     buttonTrue.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        mediator.getPresenter().onTrueBtnClicked();
+        mediator.getQuizPresenter().onTrueBtnClicked();
       }
     });
 
@@ -56,7 +53,7 @@ public class QuizView extends AppCompatActivity {
     buttonFalse.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        mediator.getPresenter().onFalseBtnClicked();
+        mediator.getQuizPresenter().onFalseBtnClicked();
       }
     });
 
@@ -64,7 +61,7 @@ public class QuizView extends AppCompatActivity {
     buttonCheat.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        mediator.getPresenter().onCheatBtnClicked();
+        mediator.getQuizPresenter().onCheatBtnClicked();
       }
     });
 
@@ -72,11 +69,11 @@ public class QuizView extends AppCompatActivity {
     buttonNext.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        mediator.getPresenter().onNextBtnClicked();
+        mediator.getQuizPresenter().onNextBtnClicked();
       }
     });
 
-    mediator.getPresenter().onScreenStarted();
+    mediator.getQuizPresenter().onScreenStarted();
   }
 
 //  private void onScreenStarted() {
@@ -234,7 +231,7 @@ public class QuizView extends AppCompatActivity {
 //  }
 //
 //  private void goToCheatScreen(){
-//    startActivity(new Intent(this, CheatActivity.class));
+//    startActivity(new Intent(this, CheatView.class));
 //    //quizApp.goToCheatScreen(this);
 //  }
 
