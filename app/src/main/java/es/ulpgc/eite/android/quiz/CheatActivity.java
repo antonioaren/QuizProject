@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
+
 public class CheatActivity extends AppCompatActivity {
 
   private boolean toolbarVisible;

@@ -1,31 +1,55 @@
-package es.ulpgc.eite.android.quiz;
+package es.ulpgc.eite.android.quiz.Mediator;
 
 import android.app.Application;
 import android.content.Intent;
 
+import es.ulpgc.eite.android.quiz.CheatActivity;
 import es.ulpgc.eite.android.quiz.model.QuestionStore;
+import es.ulpgc.eite.android.quiz.presenter.QuizPresenter;
 import es.ulpgc.eite.android.quiz.view.QuizView;
 
 public class QuizApp extends Application {
 
   private QuestionState questionState;
   private CheatState cheatState;
+
   private QuestionStore questionStore;
+  private QuizView view;
+  private QuizPresenter presenter;
 
   @Override
   public void onCreate() {
     super.onCreate();
 
     questionState = new QuestionState();
+
     questionState.toolbarVisible = false;
     questionState.answerVisible = false;
 
-    questionStore = new QuestionStore();
   }
 
   public QuestionStore getQuestionStore(){
+    if ( questionStore == null) {
+      questionStore = new QuestionStore();
+    }
     return questionStore;
   }
+
+  public QuizView getView() {
+    return view;
+  }
+
+  public QuizPresenter getPresenter() {
+    if (presenter == null){
+      presenter = new QuizPresenter();
+    }
+    return presenter;
+  }
+
+  public void registerView(QuizView quizView) {
+    this.view = quizView;
+  }
+
 
   public boolean isAnswerBtnClicked() {
     return questionState.answerBtnClicked;
@@ -61,7 +85,7 @@ public class QuizApp extends Application {
   }
 
 
-
+  //Estado de la pregunta
   private class QuestionState {
     boolean toolbarVisible;
     boolean answerVisible;
@@ -74,5 +98,4 @@ public class QuizApp extends Application {
     boolean answerVisible;
     boolean answerBtnClicked;
   }
-
 }
