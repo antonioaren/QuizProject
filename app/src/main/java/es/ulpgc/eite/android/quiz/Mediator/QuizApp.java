@@ -41,7 +41,7 @@ public class QuizApp extends Application {
 
   public QuizPresenter getPresenter() {
     if (presenter == null){
-      presenter = new QuizPresenter();
+      presenter = new QuizPresenter(this);
     }
     return presenter;
   }
