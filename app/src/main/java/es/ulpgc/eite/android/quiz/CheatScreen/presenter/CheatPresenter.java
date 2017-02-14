@@ -1,5 +1,6 @@
 package es.ulpgc.eite.android.quiz.CheatScreen.presenter;
 
+import es.ulpgc.eite.android.quiz.MainScreen.view.QuizView;
 import es.ulpgc.eite.android.quiz.Mediator.QuizApp;
 
 /**
@@ -94,7 +95,7 @@ public class CheatPresenter {
 
     //Botones presionados
     public void onTrueBtnClicked() {
-        setAnswer(Boolean.valueOf(getAnswer()));
+        quizApp.getCheatView().setAnswer(getAnswer());
         setAnswerVisibility(true);
         confirmBtnClicked = true;
         checkAnswerVisibility();
@@ -104,6 +105,6 @@ public class CheatPresenter {
     }
 
     public void onFalseBtnClicked() {
-
+        //quizApp.backToQuestionScreen(this);
     }
 }
