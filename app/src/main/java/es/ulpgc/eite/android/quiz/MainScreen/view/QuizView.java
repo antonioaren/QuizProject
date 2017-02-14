@@ -30,7 +30,7 @@ public class QuizView extends AppCompatActivity {
     setContentView(R.layout.activity_question);
 
     mediator = (QuizApp) getApplication();
-    mediator.registerView(this);
+    mediator.registerQuizView(this);
 
 
     //presenter = new QuizPresenter(this);

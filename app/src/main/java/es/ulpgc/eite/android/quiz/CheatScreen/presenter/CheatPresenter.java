@@ -105,6 +105,6 @@ public class CheatPresenter {
     }
 
     public void onFalseBtnClicked() {
-        //quizApp.backToQuestionScreen(this);
+        quizApp.getCheatView().OverActivity();
     }
 }

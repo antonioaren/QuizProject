@@ -60,10 +60,13 @@ public class QuizApp extends Application {
     return CheatPresenter;
   }
 
-  public void registerView(QuizView quizView) {
+  public void registerQuizView(QuizView quizView) {
     this.MainView = quizView;
-    //this.CheatView = quizView;
   }
+  public void registerCheatView (CheatActivity cheatView){
+    this.CheatView = cheatView;
+  }
+
 
 
   public boolean isAnswerBtnClicked() {

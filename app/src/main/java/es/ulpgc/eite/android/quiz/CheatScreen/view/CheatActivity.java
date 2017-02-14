@@ -26,6 +26,7 @@ public class CheatActivity extends AppCompatActivity {
     setContentView(R.layout.activity_cheat);
 
     quizApp = (QuizApp) getApplication();
+    quizApp.registerCheatView(this);
 
 
     labelConfirm = (TextView) findViewById(R.id.labelConfirm);
@@ -134,9 +135,11 @@ public class CheatActivity extends AppCompatActivity {
 //    }
 //  }
 
+
   public void hideToolbar() {
     toolbarScreen.setVisibility(View.GONE);
   }
+
   public void setConfirm(String text) {
     labelConfirm.setText(text);
   }
@@ -155,5 +158,9 @@ public class CheatActivity extends AppCompatActivity {
   }
   public void showAnswer() {
     labelAnswer.setVisibility(View.VISIBLE);
+  }
+
+  public void OverActivity(){
+    quizApp.backToQuestionScreen(this);
   }
 }
