@@ -32,6 +32,9 @@ public class CheatActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_cheat);
 
+    quizApp = (QuizApp) getApplication();
+
+
     labelConfirm = (TextView) findViewById(R.id.labelConfirm);
     labelAnswer = (TextView) findViewById(R.id.labelAnswer);
 
@@ -53,113 +56,101 @@ public class CheatActivity extends AppCompatActivity {
       }
     });
 
-    onScreenStarted();
+    quizApp.getCheatPresenter().onScreenStarted();
   }
 
-  private void onScreenStarted() {
-    quizApp = (QuizApp) getApplication();
-
-    falseLabel = "False";
-    trueLabel = "True";
-    confirmLabel = "Are you sure?";
-
-    setButtonLabels();
-    checkVisibility();
-
-    if(confirmBtnClicked){
-      setAnswer(getAnswer());
-    }
-  }
+//  private void onScreenStarted() {
+//
+//    falseLabel = "False";
+//    trueLabel = "True";
+//    confirmLabel = "Are you sure?";
+//
+//    setButtonLabels();
+//    checkVisibility();
+//
+//    if(confirmBtnClicked){
+//      setAnswer(getAnswer());
+//    }
+//  }
+  //private void setAnswerVisibility(boolean visible) {
+  //  quizApp.setAnswerVisibility(visible);
+  //}
+  //
+  //private boolean isAnswerVisible() {
+  //  return quizApp.isAnswerVisible();
+  //}
+  //
+  //private boolean isToolbarVisible() {
+  //  return quizApp.isToolbarVisible();
+  //}
+  //private void checkVisibility(){
+  //checkToolbarVisibility();
+  //checkAnswerVisibility();
+  //}
+  //private void checkToolbarVisibility(){
+  //if (!isToolbarVisible()) {
+  //hideToolbar();
+  //}
+  //}
+  //private boolean isToolbarVisible() {
+  //  return toolbarVisible;
+  //}
 
   private void onFalseBtnClicked() {
     finish();
     //quizApp.backToQuestionScreen(this);
   }
-
   private void onTrueBtnClicked() {
     setAnswer(getAnswer());
     setAnswerVisibility(true);
     confirmBtnClicked = true;
-    checkAnswerVisibility();
+    //checkAnswerVisibility();
   }
 
-  /*
-  private void setAnswerVisibility(boolean visible) {
-    quizApp.setAnswerVisibility(visible);
-  }
-
-  private boolean isAnswerVisible() {
-    return quizApp.isAnswerVisible();
-  }
-
-  private boolean isToolbarVisible() {
-    return quizApp.isToolbarVisible();
-  }
-  */
 
   private void setAnswerVisibility(boolean visible) {
     answerVisible = visible;
   }
+
+
+
   private boolean isAnswerVisible() {
     return answerVisible;
   }
-  private boolean isToolbarVisible() {
-    return toolbarVisible;
-  }
-  private void checkAnswerVisibility(){
-    if(!isAnswerVisible()) {
-      hideAnswer();
-    } else {
-      showAnswer();
-    }
-  }
 
+  //private void checkAnswerVisibility(){
+  //}
+  //setConfirm(getConfirmLabel());
+  //setFalseButton(getFalseLabel());
+  //setTrueButton(getTrueLabel());
+  //private void setButtonLabels(){
+  //}
+  //  }
+  //    showAnswer();
+  //  } else {
+  //  hideAnswer();
+  //if(!isAnswerVisible()) {
 
-  private void checkToolbarVisibility(){
-    if (!isToolbarVisible()) {
-      hideToolbar();
-    }
-  }
-  private void checkVisibility(){
-    checkToolbarVisibility();
-    checkAnswerVisibility();
-  }
-  private void setButtonLabels(){
-    setTrueButton(getTrueLabel());
-    setFalseButton(getFalseLabel());
-    setConfirm(getConfirmLabel());
-  }
-  
-  
-  private void hideToolbar() {
+  public void hideToolbar() {
     toolbarScreen.setVisibility(View.GONE);
   }
-  private void hideAnswer() {
-    labelAnswer.setVisibility(View.INVISIBLE);
+  public void setConfirm(String text) {
+    labelConfirm.setText(text);
+  }
+  public void setFalseButton(String label) {
+    buttonFalse.setText(label);
+  }
+  public void setTrueButton(String label) {
+    buttonTrue.setText(label);
   }
   private void setAnswer(String txt) {
     labelAnswer.setText(txt);
   }
-  private void setConfirm(String text) {
-    labelConfirm.setText(text);
-  }
-  private void setFalseButton(String label) {
-    buttonFalse.setText(label);
-  }
-  private void setTrueButton(String label) {
-    buttonTrue.setText(label);
-  }
-  private void showAnswer() {
-    labelAnswer.setVisibility(View.VISIBLE);
-  }
 
+private void setAnswer(boolean answer){
+  trueAnswer = answer;
+}
 
-  private String getConfirmLabel() {
-    return confirmLabel;
-  }
-  private String getFalseLabel() {
-    return falseLabel;
-  }
   private String getAnswer() {
     if(trueAnswer) {
       return trueLabel;
@@ -167,10 +158,11 @@ public class CheatActivity extends AppCompatActivity {
       return falseLabel;
     }
   }
-  private String getTrueLabel() {
-    return trueLabel;
+
+  public void hideAnswer() {
+    labelAnswer.setVisibility(View.INVISIBLE);
   }
-  private void setAnswer(boolean answer){
-    trueAnswer = answer;
+  public void showAnswer() {
+    labelAnswer.setVisibility(View.VISIBLE);
   }
 }

@@ -48,7 +48,6 @@ public class QuizPresenter extends AppCompatActivity {
         mediator.getMainView().setQuestion(mediator.getQuestionStore().getNextQuestion());
     }
 
-
     private void setButtonLabels(){
         mediator.getMainView().setTrueButton(mediator.getQuestionStore().getTrueLabel());
         mediator.getMainView().setFalseButton(mediator.getQuestionStore().getFalseLabel());

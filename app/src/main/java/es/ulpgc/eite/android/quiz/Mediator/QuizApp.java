@@ -13,12 +13,9 @@ public class QuizApp extends Application {
 
   private QuestionState questionState;
   private CheatState cheatState;
-
   private QuestionStore questionStore;
-
   private QuizView MainView;
   private CheatActivity CheatView;
-
   private QuizPresenter QuizPresenter;
   private CheatPresenter CheatPresenter;
 
@@ -56,7 +53,6 @@ public class QuizApp extends Application {
     }
     return QuizPresenter;
   }
-
   public CheatPresenter getCheatPresenter() {
     if (CheatPresenter == null){
       CheatPresenter = new CheatPresenter(this);
@@ -73,19 +69,15 @@ public class QuizApp extends Application {
   public boolean isAnswerBtnClicked() {
     return questionState.answerBtnClicked;
   }
-
   public void setAnswerBtnClicked(boolean clicked) {
     questionState.answerBtnClicked = clicked;
   }
-
   public boolean isAnswerVisible() {
     return questionState.answerVisible;
   }
-
   public boolean isToolbarVisible() {
     return questionState.toolbarVisible;
   }
-
   public void setAnswerVisibility(boolean visible) {
     questionState.answerVisible = visible;
   }
@@ -98,7 +90,6 @@ public class QuizApp extends Application {
 
     activity.startActivity(new Intent(activity, CheatActivity.class));
   }
-
   public void backToQuestionScreen(CheatActivity activity){
     activity.finish();
   }
@@ -111,7 +102,6 @@ public class QuizApp extends Application {
     boolean answerBtnClicked;
 
   }
-
   private class CheatState {
     boolean toolbarVisible;
     boolean answerVisible;
